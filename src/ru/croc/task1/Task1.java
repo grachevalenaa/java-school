@@ -50,17 +50,16 @@ public class Task1 {
     }
 
     public static void main(String[] args) {
-        Scanner scannerX = new Scanner(System.in);
-        Scanner scannerY = new Scanner(System.in);
+        Scanner scannerCoordinate= new Scanner(System.in);
 
         System.out.println("Enter the coordinates of the first point:");
-        Point point1 = new Point(scannerX.nextDouble(), scannerY.nextDouble());
+        Point point1 = new Point(scannerCoordinate.nextDouble(), scannerCoordinate.nextDouble());
 
         System.out.println("Enter the coordinates of the second point:");
-        Point point2 = new Point(scannerX.nextDouble(), scannerY.nextDouble());
+        Point point2 = new Point(scannerCoordinate.nextDouble(), scannerCoordinate.nextDouble());
 
         System.out.println("Enter the coordinates of the third point:");
-        Point point3  = new Point(scannerX.nextDouble(), scannerY.nextDouble());
+        Point point3  = new Point(scannerCoordinate.nextDouble(), scannerCoordinate.nextDouble());
 
         Triangle triangle = new Triangle(point1, point2, point3);
         double answer = triangle.calculateSquare();
