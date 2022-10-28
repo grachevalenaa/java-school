@@ -12,7 +12,7 @@ public class Task3 {
     System.out.println(Arrays.toString(numbers));
     }
 
-    static void changeIndexOfMaxMin(long[] numbers) {
+    public static void changeIndexOfMaxMin(long[] numbers) {
         long min = numbers[0];
         long max = numbers[0];
         int indMin = 0;
@@ -59,7 +59,7 @@ public class Task3 {
         numbers[indMax] = temp;
     }
 
-    static long[] convertIntoLong(String[] numbersInput) {
+    public static long[] convertIntoLong(String[] numbersInput) {
         long[] numbersOutput = new long[numbersInput.length];
 
         for (int i = 0; i < numbersInput.length; ++i) {
