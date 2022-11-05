@@ -7,14 +7,14 @@ public class Task5 {
                         new Point(100, 100),
                         10),
                 "Tree");
-        System.out.println(annotationCircle.toString());
+        System.out.println(annotationCircle);
 
         Annotation annotationRectangle = new Annotation(
                 new Rectangle(
                         new Point(100, 100),
                         new Point(150, 200)),
                 "Car");
-        System.out.println(annotationRectangle.toString());
+        System.out.println(annotationRectangle);
 
     }
 }

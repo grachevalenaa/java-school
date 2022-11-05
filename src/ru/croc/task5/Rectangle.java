@@ -27,4 +27,13 @@ public class Rectangle extends Figure implements Movable {
         upperRightPoint.setX(upperRightPoint.getX() + dx);
         upperRightPoint.setY(upperRightPoint.getY() + dy);
     }
+    
+    @Override
+    public String toString() {
+        return String.format("R (%d,%d), (%d,%d): ",
+                lowerLeftPoint.getX(),
+                lowerLeftPoint.getY(),
+                upperRightPoint.getX(),
+                upperRightPoint.getY());
+    }
 }

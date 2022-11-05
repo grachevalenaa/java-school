@@ -24,4 +24,13 @@ public class Circle extends Figure implements Movable {
         centerOfCircle.setX(centerOfCircle.getX() + dx);
         centerOfCircle.setY(centerOfCircle.getY() + dy);
     }
+
+    @Override
+    public String toString() {
+        return String.format("C (%d,%d), %d: ",
+                centerOfCircle.getX(),
+                centerOfCircle.getY(),
+                radiusOfCircle);
+    }
+
 }
