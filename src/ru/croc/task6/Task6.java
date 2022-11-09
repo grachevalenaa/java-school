@@ -32,41 +32,32 @@ class AnnotatedImage {
         this.annotations = annotations;
     }
 
-    public String getImagePath() {
-        return this.imagePath;
-    }
-
     public Annotation[] getAnnotations() {
         return this.annotations;
     }
 
     public Annotation findByPoint(int x, int y) {
 
-        int index = -1;
-
-        for (int i = 0; i < annotations.length; ++i) {
-            if (annotations[i].getFigure().isPointInFigure(x, y)) {
-                index = i;
-                break;
+        for (Annotation annotation: annotations) {
+            if (annotation.getFigure().isPointInFigure(x, y)) {
+                return annotation;
             }
         }
 
-        return annotations[index];
+        return null;
 
     }
 
     public Annotation findByLabel(String label) {
 
-        int index = -1;
 
-        for (int i = 0; i < annotations.length; ++i) {
-            if (annotations[i].getLabel().contains(label)) {
-                index = i;
-                break;
+        for (Annotation annotation: annotations) {
+            if (annotation.getLabel().contains(label)) {
+                return annotation;
             }
         }
 
-        return annotations[index];
+        return null;
 
     }
 
