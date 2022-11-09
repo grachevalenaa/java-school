@@ -71,7 +71,6 @@ public class Task4 {
             out.append(inArray[i]);
         }
 
-        String outString = new String(out);  // конвертирует StringBuffer в String
-        return (String)outString;
+        return new String(out);
     }
 }
