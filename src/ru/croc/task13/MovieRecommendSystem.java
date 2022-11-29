@@ -1,6 +1,8 @@
 package ru.croc.task13;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class MovieRecommendSystem {
@@ -15,7 +17,7 @@ public class MovieRecommendSystem {
 
     static {
         File file = new File(MOVIESPATH);
-        try (Scanner scanner = new Scanner(file)){
+        try (Scanner scanner = new Scanner(file)) {
             scanner.useDelimiter(",| *\\r\\n");
             MOVIES = new HashMap<>();
             while (scanner.hasNextLine()) {
@@ -66,7 +68,7 @@ public class MovieRecommendSystem {
     }
 
     private static void removeWatchedMovies(Viewer mainUser) {
-        for (Viewer viewer: viewers) {
+        for (Viewer viewer : viewers) {
             viewer.removeMovies(mainUser);
         }
     }
@@ -74,8 +76,8 @@ public class MovieRecommendSystem {
     private static int recommendCounter() {
         Map<Integer, Integer> recommendations = new HashMap<>();
 
-        for (Viewer viewer: viewers) {
-            for (Integer key: viewer.getViewingHistory().keySet()) {
+        for (Viewer viewer : viewers) {
+            for (Integer key : viewer.getViewingHistory().keySet()) {
                 if (recommendations.containsKey(key)) {
                     recommendations.put(key, recommendations.get(key) + viewer.getViewingHistory().get(key));
                 } else {
@@ -86,7 +88,7 @@ public class MovieRecommendSystem {
 
         int max = 0;
         int id = 0;
-        for(Integer key: recommendations.keySet()) {
+        for (Integer key : recommendations.keySet()) {
             if (recommendations.get(key) > max) {
                 max = recommendations.get(key);
                 id = key;

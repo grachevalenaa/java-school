@@ -1,9 +1,7 @@
 package ru.croc.task13;
 
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class Viewer {
 
@@ -28,7 +26,7 @@ public class Viewer {
 
     public boolean isRightViewer(Viewer mainUser) {
         double matchCounter = 0;  // эта переменная double, так как в return matchCounter сравнивается с double
-        for (Integer key: mainUser.getViewingHistory().keySet()) {
+        for (Integer key : mainUser.getViewingHistory().keySet()) {
             if (viewingHistory.containsKey(key)) {
                 ++matchCounter;
             }
@@ -37,9 +35,10 @@ public class Viewer {
     }
 
     public void removeMovies(Viewer mainUser) {
-        for (Integer key: mainUser.getViewingHistory().keySet()) {
+        for (Integer key : mainUser.getViewingHistory().keySet()) {
             viewingHistory.remove(key);
         }
 
     }
+
 }
