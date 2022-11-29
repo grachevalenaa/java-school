@@ -1,8 +1,6 @@
 package ru.croc.task13;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class MovieRecommendSystem {
@@ -17,9 +15,7 @@ public class MovieRecommendSystem {
 
     static {
         File file = new File(MOVIESPATH);
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)){
             scanner.useDelimiter(",| *\\r\\n");
             MOVIES = new HashMap<>();
             while (scanner.hasNextLine()) {
@@ -27,8 +23,6 @@ public class MovieRecommendSystem {
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } finally {
-            scanner.close();
         }
     }
 
@@ -49,7 +43,7 @@ public class MovieRecommendSystem {
 
     private static void removeViewers(Viewer mainUser) {
         Iterator<Viewer> iterator = viewers.iterator();
-        Viewer viewer = new Viewer();
+        Viewer viewer;
         while (iterator.hasNext()) {
             viewer = iterator.next();
             if (!viewer.isRightViewer(mainUser)) {
@@ -62,8 +56,6 @@ public class MovieRecommendSystem {
         File file = new File(VIEWINGHISTORYPATH);
         Scanner scanner = new Scanner(file);
         ArrayList<Viewer> viewers = new ArrayList<>();
-        String newLine;
-        int newId;
         Viewer viewer;
         while (scanner.hasNextLine()) {
             viewer = new Viewer();

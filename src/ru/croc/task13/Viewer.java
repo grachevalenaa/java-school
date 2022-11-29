@@ -38,9 +38,7 @@ public class Viewer {
 
     public void removeMovies(Viewer mainUser) {
         for (Integer key: mainUser.getViewingHistory().keySet()) {
-            if (viewingHistory.containsKey(key)) {
-                viewingHistory.remove(key);
-            }
+            viewingHistory.remove(key);
         }
 
     }
