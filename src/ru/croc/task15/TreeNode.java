@@ -6,26 +6,13 @@ import java.util.List;
 
 public class TreeNode {
 
-    private final TreeNode parent;
+    private final List<TreeNode> children;
 
-    private List<TreeNode> children;
-
-    private final int processingTime;
+    private final int processingTime;  // это время обработки заявки, считая от корневого отдела
 
     TreeNode(int processingTime) {
         this.processingTime = processingTime;
-        this.parent = null;
-        this.children = new ArrayList<TreeNode>();
-    }
-
-    TreeNode(TreeNode parent, int processingTime) {
-        this.processingTime = processingTime;
-        this.parent = parent;
-        this.children = new ArrayList<TreeNode>();
-    }
-
-    public List<TreeNode> getChildren() {
-        return children;
+        this.children = new ArrayList<>();
     }
 
     public TreeNode getChildOf(int i) {
@@ -53,6 +40,7 @@ public class TreeNode {
 
 
     public void calculateTotalTime(HashSet<Integer> times) {
+        //
         if (this.children.isEmpty()) {
             times.add(this.processingTime);
         }
@@ -60,6 +48,4 @@ public class TreeNode {
             node.calculateTotalTime(times);
         }
     }
-
-
 }

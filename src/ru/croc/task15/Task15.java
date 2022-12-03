@@ -31,7 +31,7 @@ public class Task15 {
                 parent = root.findNode(scanner.next());  // находим родителя по строке вида "B1"
                 time = scanner.nextInt();  // время обработки
 
-                parent.setChild(new TreeNode(parent, time + parent.getTime()));  // создаем новый node в дереве
+                parent.setChild(new TreeNode(time + parent.getTime()));  // создаем новый node в дереве
             }
             return root;
         } catch (FileNotFoundException e) {
