@@ -13,7 +13,7 @@ public class Task15 {
         TreeNode root = convertDataFromFile();
         HashSet<Integer> differentHours = new HashSet<>();
         root.calculateTotalTime(differentHours);
-        System.out.println(differentHours);
+        System.out.println(Collections.max(differentHours));
     }
 
 

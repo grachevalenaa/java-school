@@ -8,13 +8,7 @@ public class TreeNode {
 
     private List<TreeNode> children;
 
-    // private Map<String, Integer> processingTime;
-
     private final int processingTime;
-
-    /*public Set<Integer> getDifferentHours() {
-        return differentHours;
-    }*/
 
     TreeNode(int processingTime) {
         this.processingTime = processingTime;
@@ -26,13 +20,7 @@ public class TreeNode {
         this.processingTime = processingTime;
         this.parent = parent;
         this.children = new ArrayList<TreeNode>();
-        // parent.setChild(this);
     }
-
-    //private Set<Integer> differentHours;
-    /*{
-        differentHours = new HashSet<>();
-    }*/
 
     public List<TreeNode> getChildren() {
         return children;
