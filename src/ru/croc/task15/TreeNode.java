@@ -1,6 +1,8 @@
 package ru.croc.task15;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class TreeNode {
 
@@ -52,9 +54,9 @@ public class TreeNode {
 
     public void calculateTotalTime(HashSet<Integer> times) {
         if (this.children.isEmpty()) {
-             times.add(this.processingTime);
+            times.add(this.processingTime);
         }
-        for (TreeNode node: this.children) {
+        for (TreeNode node : this.children) {
             node.calculateTotalTime(times);
         }
     }

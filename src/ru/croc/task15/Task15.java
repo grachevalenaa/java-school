@@ -1,12 +1,10 @@
 package ru.croc.task15;
 
-import com.sun.source.tree.Tree;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Scanner;
 
 public class Task15 {
     public static void main(String[] args) {
@@ -15,7 +13,6 @@ public class Task15 {
         root.calculateTotalTime(differentHours);
         System.out.println(Collections.max(differentHours));
     }
-
 
 
     private static final String DATAPATH = "src/ru/croc/task15/input.txt";
