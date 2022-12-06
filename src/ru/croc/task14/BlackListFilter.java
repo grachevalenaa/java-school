@@ -6,10 +6,11 @@ import java.util.function.Predicate;
 
 public interface BlackListFilter<E extends Iterable<T>, T> {
 
-    default List<T> toFilterComment(Iterable<T> in, Predicate<T> predicate) {
+    default List<T> toFilterComment(E in, Predicate<T> predicate) {
         List<T> out = new ArrayList<>();
         in.forEach(elem -> {
-            if (predicate.test(elem)) out.add(elem);
+            if (predicate.test(elem))
+                out.add(elem);
         });
         return out;
     }
