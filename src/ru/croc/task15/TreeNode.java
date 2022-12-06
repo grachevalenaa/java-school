@@ -3,11 +3,14 @@ package ru.croc.task15;
 import java.util.*;
 
 public class TreeNode {
+    private final String name;
+
     private final List<TreeNode> children;
 
     private final int processingTime;  // это время обработки заявки, считая от корневого отдела
 
-    TreeNode(int processingTime) {
+    TreeNode(String name, int processingTime) {
+        this.name = name;
         this.processingTime = processingTime;
         this.children = new ArrayList<>();
     }
@@ -33,17 +36,5 @@ public class TreeNode {
             node = node.getChildOf(index);
         }
         return node;
-    }
-
-    public int calculateTotalTime(HashSet<Integer> times) {
-        /*поле processingTime листьев дерева уже содержат в себе различные времена обработки (финальные);
-        доходим до всех листьев дерева и добавляем их в times, возвращаем максимальное время*/
-        if (this.children.isEmpty()) {
-            times.add(this.processingTime);
-        }
-        for (TreeNode node : this.children) {
-            node.calculateTotalTime(times);
-        }
-        return Collections.max(times);
     }
 }
